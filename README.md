@@ -1,19 +1,16 @@
 # MOOZ Collection Website
 
-A modern web application for the MOOZ NFT Collection on the SEI blockchain, built with Next.js 15 and TailwindCSS.
+A modern landing page for the MOOZ NFT Collection, built with Astro and TailwindCSS.
 
 🌐 **Official Website**: [https://www.mooz.top](https://www.mooz.top)
 
 ## 🌟 Features
 
-- Built with Next.js 15 App Router
+- Built with Astro (static site generation)
 - Responsive design optimized for all devices
-- Real-time NFT statistics via Magic Eden API
-- Interactive UI components with shadcn/ui
-- SEI blockchain integration
-- Magic Eden marketplace integration
+- Smooth scroll animations powered by GSAP
+- OpenSea marketplace integration
 - Social media integration
-- Live market analytics including floor price, volume, and holder statistics
 - Optimized local image delivery
 - Modern image formats support (AVIF, WebP)
 
@@ -22,8 +19,7 @@ A modern web application for the MOOZ NFT Collection on the SEI blockchain, buil
 ### Prerequisites
 
 - Node.js 18.17 or later
-- npm or yarn
-- A Magic Eden API key (required for real-time NFT statistics)
+- npm
 
 ### Installation
 
@@ -38,13 +34,7 @@ cd mooz-website
 npm install
 ```
 
-3. Set up environment variables:
-```bash
-cp .env.example .env
-```
-Edit `.env` and add your Magic Eden API key.
-
-4. Run the development server:
+3. Run the development server:
 ```bash
 npm run dev
 ```
@@ -53,50 +43,38 @@ Open [http://localhost:3000](http://localhost:3000) to view the website.
 
 ## 🛠️ Built With
 
-- [Next.js 15](https://nextjs.org/) - React framework with App Router
-- [TailwindCSS](https://tailwindcss.com/) - CSS framework
-- [shadcn/ui](https://ui.shadcn.com/) - UI components
-- [Magic Eden API](https://api.magiceden.dev/) - NFT marketplace integration
-- [Vercel Analytics](https://vercel.com/analytics) - Performance monitoring
+- [Astro](https://astro.build/) - Web framework for content-driven websites
+- [TailwindCSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [GSAP](https://gsap.com/) - GreenSock Animation Platform for animations
 
 ## 📁 Project Structure
 
 ```
 mooz-website/
-├── app/                    # Next.js app directory
-│   ├── api/               # API routes
-│   ├── components/        # React components
-│   ├── layout.tsx         # Root layout
-│   └── page.tsx           # Home page
 ├── public/                # Static assets
-│   └── images/           # Optimized local images
-│       ├── about/        # About section images
-│       ├── bg/           # Background images
-│       ├── cows/         # NFT collection images
-│       ├── logo/         # Logo assets
-│       ├── marketplace/  # Marketplace assets
-│       └── team/         # Team member images
-└── lib/                  # Utility functions
+│   └── images/            # Optimized local images
+│       ├── about/         # About section images
+│       ├── bg/            # Background images
+│       ├── logo/          # Logo assets
+│       ├── marketplace/   # Marketplace assets
+│       ├── sales/         # Sales tracker announcement
+│       └── team/          # Team member images
+├── src/
+│   ├── components/        # Astro components (Footer, etc.)
+│   ├── layouts/           # Page layouts (Layout.astro)
+│   ├── pages/             # Page files (index.astro, privacy.astro, terms/)
+│   └── styles/            # Global stylesheets (globals.css)
+└── tailwind.config.js     # Tailwind CSS configuration
 ```
-
-## 🔒 Environment Variables
-
-Create a `.env` file in the root directory with the following variables:
-
-```env
-MAGIC_EDEN_API_KEY=your_api_key_here
-```
-
-⚠️ Never commit your `.env` file to version control!
 
 ## 🚀 Deployment
 
-This project is optimized for deployment on Vercel:
-
+Build the project locally:
 ```bash
-npm run build   # Build the project
-npm run start   # Start production server
+npm run build
 ```
+
+This generates a static build in the `dist/` directory.
 
 ## 🤝 Contributing
 
@@ -114,4 +92,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - MOOZ Collection Team
 - SEI Blockchain Community
-- Magic Eden Marketplace
+- OpenSea Marketplace

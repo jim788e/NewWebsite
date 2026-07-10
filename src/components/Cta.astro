@@ -1,0 +1,32 @@
+---
+import Icon from './Icon.astro';
+---
+
+<section class="py-20 bg-gradient-to-r from-[#FF3366] to-[#FF9933] border-t border-navy-950">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">Ready to Join the Farm?</h2>
+    <p class="text-xl max-w-2xl mx-auto mb-10 text-white/90">
+      Don't miss your chance to own a unique MOOZ Cow and become part of our growing community.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <a
+        href="https://opensea.io/collection/mooznfts"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center bg-[#020B2D] hover:bg-[#1A215E] text-white text-lg px-8 py-4 rounded-lg font-medium transition-colors gap-2"
+      >
+        <Icon name="opensea" class="h-5 w-5" />
+        Buy on OpenSea
+      </a>
+      <a 
+        href="https://discord.com/invite/WWBJYYkYt2" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center bg-[#020B2D] hover:bg-[#1A215E] text-white text-lg px-8 py-4 rounded-lg font-medium transition-colors gap-2"
+      >
+        <Icon name="discord" class="h-5 w-5" />
+        Join Discord
+      </a>
+    </div>
+  </div>
+</section>

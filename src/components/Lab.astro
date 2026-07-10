@@ -1,0 +1,63 @@
+---
+import Icon from './Icon.astro';
+---
+
+<section id="lab" class="relative py-20 overflow-hidden bg-navy-900/40">
+  <!-- Decorative background glows -->
+  <div class="absolute inset-0 z-0 opacity-10">
+    <div class="absolute top-10 left-10 w-72 h-72 bg-gradient-opensea rounded-full blur-3xl"></div>
+    <div class="absolute bottom-10 right-10 w-96 h-96 bg-gradient-me rounded-full blur-3xl"></div>
+  </div>
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="max-w-4xl mx-auto text-center mb-16">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-opensea/10 border border-gradient-opensea/20 text-secondary text-sm font-semibold mb-4 animate-glow lab-badge">
+        <Icon name="sparkles" class="h-4 w-4 text-secondary animate-pulse" />
+        The Next Chapter
+      </span>
+      <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-6 lab-header">Cool Cows Lab is Ready 🧪</h2>
+      <p class="text-xl text-navy-300 max-w-2xl mx-auto lab-desc">THE CYCLE IS HERE. We've built an unbreakable foundation through the bear market and are ready to dominate this cycle on Sei.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
+      <!-- Card 1: The Launchpad -->
+      <div class="lab-card">
+        <div class="group relative bg-navy-900/60 backdrop-blur-sm rounded-2xl p-8 border border-navy-800 transition-all duration-300 hover:-translate-y-1 hover:border-secondary/30 hover:shadow-[0_10px_30px_rgba(255,153,51,0.1)] h-full">
+          <div class="w-12 h-12 rounded-xl bg-gradient-opensea/10 flex items-center justify-center border border-gradient-opensea/20 mb-6 group-hover:scale-110 transition-transform duration-300">
+            <Icon name="launchpad" class="h-6 w-6 text-secondary" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-4">The Launchpad</h3>
+          <p class="text-navy-300 leading-relaxed">Our tech is battle-tested and ready to incubate the next tier of Web3 projects. Providing secure infrastructure and support to bring top-tier collections to life on Sei.</p>
+        </div>
+      </div>
+
+      <!-- Card 2: The Tools -->
+      <div class="lab-card">
+        <div class="group relative bg-navy-900/60 backdrop-blur-sm rounded-2xl p-8 border border-navy-800 transition-all duration-300 hover:-translate-y-1 hover:border-secondary/30 hover:shadow-[0_10px_30px_rgba(255,153,51,0.1)] h-full">
+          <div class="w-12 h-12 rounded-xl bg-gradient-opensea/10 flex items-center justify-center border border-gradient-opensea/20 mb-6 group-hover:scale-110 transition-transform duration-300">
+            <Icon name="wrench" class="h-6 w-6 text-secondary" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-4">The Tools</h3>
+          <p class="text-navy-300 leading-relaxed">No more guessing in the trenches. Our custom analytics and management utilities are dialed in to give the herd the exact edge needed to win this bull cycle.</p>
+        </div>
+      </div>
+
+      <!-- Card 3: The Vaults -->
+      <div class="lab-card">
+        <div class="group relative bg-navy-900/60 backdrop-blur-sm rounded-2xl p-8 border border-navy-800 transition-all duration-300 hover:-translate-y-1 hover:border-secondary/30 hover:shadow-[0_10px_30px_rgba(255,153,51,0.1)] h-full">
+          <div class="w-12 h-12 rounded-xl bg-gradient-opensea/10 flex items-center justify-center border border-gradient-opensea/20 mb-6 group-hover:scale-110 transition-transform duration-300">
+            <Icon name="vaults" class="h-6 w-6 text-secondary" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-4">The Vaults</h3>
+          <p class="text-navy-300 leading-relaxed">The heartbeat of our ecosystem. Vaults, rewards, and the true utility of the $MOOZ token are ready to run at full speed as part of our core launchpad hub.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-center lab-cta">
+      <a href="https://x.com/MoozNft/status/2004636909180755982?s=20" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-gradient-opensea hover:opacity-90 text-white text-lg px-8 py-4 rounded-xl font-medium transition-opacity gap-2">
+        Read the Announcement
+        <Icon name="external-link" class="h-5 w-5" />
+      </a>
+    </div>
+  </div>
+</section>

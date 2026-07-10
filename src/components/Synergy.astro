@@ -1,0 +1,168 @@
+---
+import { Image } from 'astro:assets';
+import synergyBg from '../assets/images/synergy-bg.webp';
+import logoImg from '../assets/images/logo.webp';
+import coolCowsLogo from '../assets/images/cool_cows_logo.webp';
+import Icon from './Icon.astro';
+---
+
+<section id="synergy" class="relative py-28 overflow-hidden bg-navy-950 border-t border-navy-900">
+  <!-- Background image with radial gradient overlay -->
+  <div class="absolute inset-0 z-0">
+    <Image
+      src={synergyBg}
+      alt="The Evolution of the Herd"
+      class="w-full h-full object-cover opacity-90"
+      width={1920}
+      height={1080}
+      loading="lazy"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-950/20 to-navy-950"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,153,51,0.05),transparent_70%)]"></div>
+  </div>
+
+  <div class="w-full max-w-[96%] xl:max-w-[92%] 2xl:max-w-[88%] mx-auto px-4 relative z-10">
+    <!-- Title & Intro -->
+    <div class="max-w-4xl mx-auto text-center mb-16 synergy-item">
+      <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-6">
+        The Evolution of the Herd: From Assets to Web3 Infrastructure
+      </h2>
+      <p class="text-lg md:text-xl text-navy-200 leading-relaxed font-light">
+        This is the story of how two interconnected NFT collections evolved from standalone digital assets into the foundational ecosystem powering a comprehensive multi-chain developer hub.
+      </p>
+    </div>
+
+    <!-- Main Chapters Grid (Leaving center column empty for the cows) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20 items-start">
+      <!-- Left Card: Chapter 1: The Origin (MOOZ) -->
+      <div class="lg:col-span-4 synergy-left-card">
+        <div class="bg-navy-900/80 backdrop-blur-md rounded-3xl p-8 border border-navy-800 shadow-[0_20px_50px_rgba(0,0,0,0.4)] hover:border-secondary/20 transition-all duration-300 group">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary border border-secondary/20">
+              <span class="font-bold text-lg">1</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white group-hover:text-secondary transition-colors">
+              Chapter 1: The Origin (MOOZ)
+            </h3>
+          </div>
+          <div class="space-y-4 text-navy-300 leading-relaxed text-justify text-sm md:text-base">
+            <p>
+              The journey began with <strong class="text-white">MOOZ</strong>, a vibrant community-driven collection originally launched on the Sei network. As a pioneer asset, MOOZ established the core identity of the "herd"—a loyal, highly engaged community of collectors and Web3 enthusiasts.
+            </p>
+            <p>
+              However, scaling a true technological ecosystem required a shift. To unlock higher liquidity, broader market exposure, and advanced smart contract capabilities, the collection executed a massive migration from Sei over to the Ethereum network. This migration successfully bridged the core community to a larger stage, laying the groundwork for what was coming next.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spacer column (Where the cows are visible in the background) -->
+      <div class="hidden lg:block lg:col-span-4 h-64 pointer-events-none"></div>
+
+      <!-- Right Card: Chapter 2: The Infrastructure (Cool Cows Lab) -->
+      <div class="lg:col-span-4 synergy-right-card">
+        <div class="bg-navy-900/80 backdrop-blur-md rounded-3xl p-8 border border-navy-800 shadow-[0_20px_50px_rgba(0,0,0,0.4)] hover:border-secondary/20 transition-all duration-300 group">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary border border-primary/20">
+              <span class="font-bold text-lg">2</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white group-hover:text-primary transition-colors">
+              Chapter 2: The Infrastructure
+            </h3>
+          </div>
+          <div class="space-y-4 text-navy-300 leading-relaxed text-sm md:text-base">
+            <p class="text-justify">
+              With the community firmly anchored on Ethereum, <strong class="text-white">Cool Cows Lab</strong> was introduced as the engineering and utility arm of the ecosystem. It shifted the brand's narrative from "just grazing" to active building, expanding into a powerhouse for full-stack developer services.
+            </p>
+            <div class="pt-2 border-t border-navy-800/60 space-y-3">
+              <h4 class="text-white font-semibold text-sm uppercase tracking-wider">Critical Pillars:</h4>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs md:text-sm">
+                <li class="flex items-start gap-2">
+                  <Icon name="check" class="mt-0.5 text-secondary flex-shrink-0 w-4 h-4" />
+                  <div><strong class="text-white">Multi-Chain Launchpad:</strong> Incubate, deploy, and mint new collections.</div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <Icon name="check" class="mt-0.5 text-secondary flex-shrink-0 w-4 h-4" />
+                  <div><strong class="text-white">Custom Automation:</strong> Advanced trading, tracking, and utility bots.</div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <Icon name="check" class="mt-0.5 text-secondary flex-shrink-0 w-4 h-4" />
+                  <div><strong class="text-white">The Tools:</strong> Custom analytics and contract utilities.</div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <Icon name="check" class="mt-0.5 text-secondary flex-shrink-0 w-4 h-4" />
+                  <div><strong class="text-white">The Vaults:</strong> Secure digital asset rewards and utility.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Card: Connection & Summary -->
+    <div class="max-w-6xl mx-auto synergy-bottom-card">
+      <div class="bg-navy-900/85 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-navy-800 shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:border-secondary/10 transition-all duration-300">
+        <div class="grid lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- The Connection Details -->
+          <div class="lg:col-span-8 space-y-6">
+            <h3 class="text-2xl font-bold text-white flex items-center gap-2">
+              <Icon name="connection" class="text-secondary w-6 h-6" />
+              The Connection: Powering Full-Stack Dev Services
+            </h3>
+            <p class="text-navy-300 leading-relaxed text-justify text-sm md:text-base">
+              The intersection of MOOZ and Cool Cows Lab creates a proprietary infrastructure loop. Instead of functioning as isolated digital assets, the two collections serve as the network access key and deployment engine for an all-in-one Web3 development studio:
+            </p>
+            <div class="grid sm:grid-cols-2 gap-6 pt-4 border-t border-navy-800/60">
+              <div class="space-y-2">
+                <h4 class="text-white font-semibold flex items-center gap-2 text-sm md:text-base">
+                  <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  1. Community & Utility Layer (MOOZ)
+                </h4>
+                <p class="text-xs md:text-sm text-navy-450 leading-relaxed">
+                  The original MOOZ collection acts as the primary membership pass and governance framework. Holders unlock premium tier access to the suite of tools and cross-chain services built by the Lab.
+                </p>
+              </div>
+              <div class="space-y-2">
+                <h4 class="text-white font-semibold flex items-center gap-2 text-sm md:text-base">
+                  <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                  2. The Operational Suite (Cool Cows Lab)
+                </h4>
+                <p class="text-xs md:text-sm text-navy-450 leading-relaxed">
+                  Offers Discord setup & community security architecture (tailored for crypto verification and holder roles), full-stack dev services (smart contracts, dApps, multi-sigs), and multi-chain scalability options.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Summary Quote Callout -->
+          <div class="lg:col-span-4 h-full flex flex-col justify-between p-6 md:p-8 rounded-2xl bg-gradient-to-br from-navy-950 to-navy-900 border border-navy-800">
+            <div class="space-y-4">
+              <span class="text-xs font-mono uppercase tracking-wider text-secondary font-bold">Summary</span>
+              <blockquote class="text-base md:text-lg font-bold text-white leading-relaxed">
+                "MOOZ brought the crowd; Cool Cows Lab built the tech."
+              </blockquote>
+              <p class="text-xs text-navy-400 leading-relaxed">
+                Together, they form a closed-loop ecosystem providing full-stack development, multi-chain launchpads, advanced bots, and automated Discord setups for the next generation of crypto projects.
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-6 border-t border-navy-800/60 mt-6">
+              <div class="flex -space-x-3">
+                <div class="w-8 h-8 rounded-full bg-navy-950 border border-secondary flex items-center justify-center p-0.5 overflow-hidden z-10">
+                  <Image src={logoImg} alt="MOOZ Logo" class="w-full h-full object-contain" width={32} height={32} />
+                </div>
+                <div class="w-8 h-8 rounded-full bg-white border border-primary flex items-center justify-center overflow-hidden z-0">
+                  <Image src={coolCowsLogo} alt="Cool Cows Lab Logo" class="w-full h-full object-cover" width={32} height={32} />
+                </div>
+              </div>
+              <span class="text-xs text-white font-semibold font-mono">Unified Vision</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

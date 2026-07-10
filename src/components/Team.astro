@@ -1,0 +1,152 @@
+---
+import { Image } from 'astro:assets';
+import misiosImg from '../assets/images/misios.webp';
+import b1337nImg from '../assets/images/b1337n.webp';
+import Icon from './Icon.astro';
+
+const team = [
+  {
+    id: "misios",
+    name: "misios",
+    role: "Founder & Dev",
+    image: misiosImg,
+    twitterUrl: "https://x.com/d_misios",
+    twitterHandle: "@d_misios"
+  },
+  {
+    id: "b1337n",
+    name: "b1337n",
+    role: "Founder-Collabs",
+    image: b1337nImg,
+    twitterUrl: "https://x.com/BenSEI_1337",
+    twitterHandle: "@BenSEI_1337"
+  }
+];
+---
+
+<section id="team" class="py-20 bg-navy-950 relative overflow-hidden">
+  <!-- Background decoration -->
+  <div class="absolute inset-0 opacity-5 pointer-events-none">
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-gradient-me rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary rounded-full blur-3xl"></div>
+  </div>
+  
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="text-center mb-16 team-header">
+      <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-4">Meet the Farmers</h2>
+      <p class="text-navy-300 text-lg max-w-2xl mx-auto">The passionate team building the MOOZ ecosystem</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      {team.map((member) => (
+        <div 
+          class="team-card h-[460px] sm:h-[520px] md:h-[480px] lg:h-[520px] w-full perspective-1000"
+          tabindex="0"
+          role="button"
+          aria-label={`Team member card for ${member.name}. Click or press Enter to flip and see social links.`}
+        >
+          <div class="team-card-inner relative w-full h-full cursor-pointer style-3d shadow-2xl rounded-2xl">
+            <!-- FRONT -->
+            <div class="team-card-front absolute inset-0 w-full h-full backface-hidden bg-gradient-to-br from-navy-900 to-navy-800 rounded-2xl overflow-hidden border border-navy-700/50 flex flex-col justify-between group">
+              <div class="absolute inset-0 bg-gradient-to-br from-secondary/0 to-secondary/0 group-hover:from-secondary/10 group-hover:to-transparent transition-all duration-300 pointer-events-none"></div>
+              
+              <div class="relative aspect-square overflow-hidden flex-shrink-0 h-[300px] sm:h-[360px] md:h-[320px] lg:h-[360px]">
+                <Image
+                  src={member.image}
+                  alt={`${member.name}'s profile picture`}
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  width={400}
+                  height={400}
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent"></div>
+              </div>
+              
+              <div class="p-6 text-center relative flex-1 flex flex-col justify-center">
+                <div class="mb-2">
+                  <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-secondary transition-colors">
+                    {member.name}
+                  </h3>
+                  <div class="inline-block px-4 py-1.5 bg-navy-800/50 rounded-full border border-navy-700/50">
+                    <p class="text-navy-300 text-sm font-medium">{member.role}</p>
+                  </div>
+                </div>
+                <!-- Tap to flip affordance -->
+                <span class="absolute bottom-2 right-4 text-xs font-mono text-navy-400 flex items-center gap-1 group-hover:text-secondary transition-colors">
+                  Tap to flip <span class="animate-pulse">🔄</span>
+                </span>
+              </div>
+              <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-secondary/20 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+
+            <!-- BACK -->
+            <div class="team-card-back absolute inset-0 w-full h-full backface-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 rounded-2xl border border-secondary/50 flex flex-col items-center justify-center p-8 text-center overflow-hidden">
+              <div class="relative z-10 flex flex-col items-center justify-center h-full w-full">
+                <div class="w-16 h-16 bg-secondary/10 border border-secondary/30 rounded-full flex items-center justify-center mb-6">
+                  <Icon name="x-twitter" class="h-8 w-8 text-secondary" />
+                </div>
+                <h4 class="text-xl font-bold text-white mb-2">Connect with {member.name}</h4>
+                <p class="text-navy-300 mb-6 text-sm">
+                  Follow on X to stay updated with Cool Cows Lab and the MOOZ farm.
+                </p>
+                <a 
+                  href={member.twitterUrl}
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center bg-gradient-opensea hover:opacity-90 text-white font-semibold px-6 py-3 rounded-xl gap-2 z-20"
+                >
+                  <Icon name="x-twitter" class="h-4 w-4" />
+                  Follow {member.twitterHandle}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* 3D Card Flip styling */
+  .team-card-inner {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+  }
+  
+  .team-card-inner.flipped {
+    transform: rotateY(180deg);
+  }
+</style>
+
+<script>
+  function initTeamFlip() {
+    document.querySelectorAll('.team-card').forEach((card) => {
+      const inner = card.querySelector('.team-card-inner');
+      if (!inner) return;
+
+      const toggleFlip = (e: Event) => {
+        // Prevent click events inside the social links from triggering flips
+        const target = e.target as HTMLElement;
+        if (target.closest('a')) return;
+        
+        inner.classList.toggle('flipped');
+      };
+
+      card.addEventListener('click', toggleFlip);
+      
+      card.addEventListener('keydown', (e) => {
+        const keyboardEvent = e as KeyboardEvent;
+        if (keyboardEvent.key === ' ' || keyboardEvent.key === 'Enter') {
+          e.preventDefault();
+          toggleFlip(e);
+        }
+      });
+    });
+  }
+
+  // Run on page load
+  initTeamFlip();
+  // Support Astro view transitions / document updates if active
+  document.addEventListener('astro:after-swap', initTeamFlip);
+</script>

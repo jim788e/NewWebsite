@@ -1,0 +1,63 @@
+---
+import { Image } from 'astro:assets';
+import salesImg from '../assets/images/sales.webp';
+import openseaPreview from '../assets/images/opensea-preview.webp';
+import Icon from './Icon.astro';
+---
+
+<section id="marketplace" class="py-20 bg-navy-950">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-center gradient-text mb-12 marketplace-header">Marketplace & Sales</h2>
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <!-- Sales Tracker Column -->
+      <div class="flex flex-col items-center md:items-start text-center md:text-left marketplace-tracker">
+        <h3 class="text-2xl font-bold text-white mb-6">Track MOOZ Sales on X</h3>
+        <div class="relative h-[300px] w-full max-w-sm rounded-xl overflow-hidden mb-6 bg-navy-900 border border-navy-800">
+          <Image
+            src={salesImg}
+            alt="MOOZ Sales Tracker Announcement"
+            class="w-full h-full object-contain rounded-xl"
+            width={384}
+            height={300}
+            loading="lazy"
+          />
+        </div>
+        <p class="text-navy-300 mb-4">Follow our dedicated X account for real-time updates on MOOZ sales activity!</p>
+        <a href="https://x.com/MOOZSALES" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center border border-navy-700 hover:bg-navy-800 text-white px-5 py-2.5 rounded-lg font-medium transition-colors gap-2">
+          <Icon name="x-twitter" class="h-4 w-4" />
+          Follow @MOOZSALES
+        </a>
+      </div>
+
+      <!-- OpenSea Column with Background -->
+      <div class="relative flex flex-col items-center md:items-start text-center md:text-left p-8 rounded-xl overflow-hidden min-h-[350px] justify-center marketplace-opensea">
+        <!-- Optimized Background Image using Astro Image (underneath layed out elements) -->
+        <div class="absolute inset-0 z-0">
+          <Image
+            src={openseaPreview}
+            alt="OpenSea Preview Background"
+            class="w-full h-full object-cover"
+            width={600}
+            height={350}
+            loading="lazy"
+          />
+          <!-- Overlay for text readability -->
+          <div class="absolute inset-0 bg-navy-950/75 z-10"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-20 flex flex-col items-center md:items-start w-full">
+          <div class="w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/20 p-2 mb-4">
+            <Icon name="opensea" class="w-10 h-10 text-[#2081E2]" />
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-4">Available on OpenSea</h3>
+          <p class="text-navy-300 mb-6">Purchase MOOZ Cows on the official secondary marketplace.</p>
+          <a href="https://opensea.io/collection/mooznfts" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-gradient-opensea hover:opacity-90 text-white px-5 py-2.5 rounded-lg font-medium transition-opacity gap-2">
+            <Icon name="opensea" class="h-4 w-4" />
+            View Listings
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

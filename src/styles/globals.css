@@ -147,10 +147,6 @@
   }
 }
 
-.glow-text-green {
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
 /* 3D Card Flip Utilities */
 .perspective-1000 {
   perspective: 1000px;

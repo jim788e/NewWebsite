@@ -1,0 +1,46 @@
+---
+import { Image } from 'astro:assets';
+import heroBg from '../assets/images/hero-bg.webp';
+import Icon from './Icon.astro';
+---
+
+<section class="relative py-20 overflow-hidden hero-section">
+  <div class="absolute inset-0 z-0 hero-bg">
+    <Image
+      src={heroBg}
+      alt="Hero Background"
+      class="w-full h-full object-cover opacity-40"
+      loading="eager"
+      width={1920}
+      height={1080}
+    />
+  </div>
+  <div class="container mx-auto px-4 relative z-10 flex flex-col items-center text-center">
+    <h1 class="text-4xl md:text-6xl font-bold gradient-text mb-6 hero-title flex flex-wrap justify-center gap-x-3 gap-y-1">
+      <span class="inline-block overflow-hidden pb-1">
+        <span class="hero-word inline-block">Welcome</span>
+      </span>
+      <span class="inline-block overflow-hidden pb-1">
+        <span class="hero-word inline-block">to</span>
+      </span>
+      <span class="inline-block overflow-hidden pb-1">
+        <span class="hero-word inline-block">the</span>
+      </span>
+      <span class="inline-block overflow-hidden pb-1">
+        <span class="hero-word inline-block">MOOZ</span>
+      </span>
+      <span class="inline-block overflow-hidden pb-1">
+        <span class="hero-word inline-block">farm</span>
+      </span>
+    </h1>
+    <p class="text-xl md:text-2xl text-navy-300 max-w-3xl mb-10 hero-text">
+      Collect unique digital MOOZ cows on Ethereum. MOOZ has successfully migrated to Ethereum with a final locked supply of 1,700 NFTs.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center gap-4 hero-cta">
+      <a href="https://opensea.io/collection/mooznfts" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-gradient-opensea hover:opacity-90 text-white text-lg px-8 py-4 rounded-lg font-medium transition-opacity">
+        <Icon name="opensea" class="mr-2 h-5 w-5" />
+        Buy on OpenSea
+      </a>
+    </div>
+  </div>
+</section>

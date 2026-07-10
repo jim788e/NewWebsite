@@ -98,6 +98,28 @@ import logoImg from '../assets/images/logo.webp';
       <Cta />
     </main>
     <Footer />
+
+    <!-- Mobile Sticky CTA -->
+    <div id="mobile-sticky-cta" class="fixed bottom-0 left-0 right-0 z-40 p-4 bg-navy-950/95 backdrop-blur-md border-t border-navy-800 md:hidden transform translate-y-full transition-transform duration-300 shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
+      <div class="flex items-center justify-between gap-4">
+        <div class="flex items-center gap-2">
+          <Image src={logoImg} alt="MOOZ" class="w-8 h-8 object-contain" width={32} height={32} />
+          <div>
+            <p class="text-white text-xs font-bold font-mono tracking-wider">MOOZ NFT</p>
+            <p class="text-navy-300 text-[10px]">Migrated to Ethereum</p>
+          </div>
+        </div>
+        <a
+          href="https://opensea.io/collection/mooznfts"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex-1 flex items-center justify-center bg-gradient-opensea hover:opacity-90 text-white text-sm py-2.5 px-4 rounded-xl font-semibold gap-2 transition-all shadow-lg"
+        >
+          <Icon name="opensea" class="h-4 w-4" />
+          Buy on OpenSea
+        </a>
+      </div>
+    </div>
   </div>
 </Layout>
 
@@ -153,7 +175,44 @@ import logoImg from '../assets/images/logo.webp';
     });
 
     // ----------------------------------------------------
-    // 3. GSAP Scroll Animations
+    // 3. Mobile Sticky CTA Interactivity (IntersectionObserver)
+    // ----------------------------------------------------
+    const mobileStickyCta = document.getElementById('mobile-sticky-cta');
+    const heroSection = document.querySelector('.hero-section');
+    const ctaSection = document.getElementById('cta-section');
+
+    if (mobileStickyCta && heroSection && ctaSection) {
+      let heroVisible = true;
+      let ctaVisible = false;
+
+      const toggleStickyCta = () => {
+        if (!heroVisible && !ctaVisible) {
+          mobileStickyCta.classList.remove('translate-y-full');
+        } else {
+          mobileStickyCta.classList.add('translate-y-full');
+        }
+      };
+
+      const heroObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          heroVisible = entry.isIntersecting;
+          toggleStickyCta();
+        });
+      }, { threshold: 0.1 });
+
+      const ctaObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          ctaVisible = entry.isIntersecting;
+          toggleStickyCta();
+        });
+      }, { threshold: 0.1 });
+
+      heroObserver.observe(heroSection);
+      ctaObserver.observe(ctaSection);
+    }
+
+    // ----------------------------------------------------
+    // 4. GSAP Scroll Animations
     // ----------------------------------------------------
     // Check user preference for reduced motion before running animations
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

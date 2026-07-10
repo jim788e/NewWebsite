@@ -9,6 +9,7 @@ export default tseslint.config(
     ignores: [
       "dist/**/*",
       ".astro/**/*",
+      ".vercel/**/*",
       "node_modules/**/*",
       "tailwind.config.js"
     ]

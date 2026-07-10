@@ -1,0 +1,33 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-navy-950 py-8 border-t border-navy-800/60 mt-auto">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-navy-400">
+      <div>
+        &copy; copyright {currentYear}. All Rights Reserved. Design & Development by{' '}
+        <a 
+          href="https://x.com/d_misios" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="text-white hover:text-secondary transition-colors font-medium"
+        >
+          misios
+        </a>
+      </div>
+      
+      <div class="flex flex-wrap gap-x-6 gap-y-2 md:gap-x-8">
+        <a href="/terms" class="hover:text-secondary transition-colors">
+          Terms & Conditions
+        </a>
+        <a href="/privacy" class="hover:text-secondary transition-colors">
+          Privacy Policy
+        </a>
+        <a href="https://x.com/mooznft" target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

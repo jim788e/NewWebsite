@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 226 94% 9%;
+    --foreground: 0 0% 100%;
+
+    --card: 226 94% 9%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 226 94% 9%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 344 100% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 30 100% 60%;
+    --secondary-foreground: 226 94% 9%;
+
+    --muted: 226 75% 98%;
+    --muted-foreground: 226 30% 50%;
+
+    --accent: 30 100% 60%;
+    --accent-foreground: 226 94% 9%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 226 30% 20%;
+    --input: 226 30% 20%;
+    --ring: 226 63% 49%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
+  }
+}
+
+/* Glowing Effects */
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(74, 222, 128, 0.2),
+                 0 0 20px rgba(74, 222, 128, 0.2),
+                 0 0 30px rgba(74, 222, 128, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(74, 222, 128, 0.4),
+                 0 0 30px rgba(74, 222, 128, 0.4),
+                 0 0 40px rgba(74, 222, 128, 0.4);
+  }
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.glow-border {
+  box-shadow: 0 0 10px rgba(74, 222, 128, 0.1),
+              inset 0 0 20px rgba(74, 222, 128, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.glow-border:hover {
+  box-shadow: 0 0 15px rgba(74, 222, 128, 0.2),
+              inset 0 0 30px rgba(74, 222, 128, 0.2);
+}
+
+.glow-text-green {
+  text-shadow: 0 0 10px rgba(74, 222, 128, 0.5),
+               0 0 20px rgba(74, 222, 128, 0.3);
+  color: rgb(74, 222, 128);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.glow-text-green::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgb(74, 222, 128);
+  box-shadow: 0 0 8px rgb(74, 222, 128);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.glow-text-green:hover {
+  text-shadow: 0 0 15px rgba(74, 222, 128, 0.8),
+               0 0 30px rgba(74, 222, 128, 0.6);
+  color: rgb(134, 239, 172);
+}
+
+.glow-text-green:hover::after {
+  opacity: 1;
+  box-shadow: 0 0 15px rgb(74, 222, 128);
+}
+
+.glow-text-blue {
+  text-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
+  transition: text-shadow 0.3s ease;
+}
+
+.glow-text-gold {
+  text-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
+  transition: text-shadow 0.3s ease;
+}
+
+.glow-button {
+  box-shadow: 0 0 15px rgba(74, 222, 128, 0.2);
+  transition: all 0.3s ease;
+}
+
+.glow-button:hover {
+  box-shadow: 0 0 20px rgba(74, 222, 128, 0.4);
+  transform: translateY(-2px);
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 10px rgba(74, 222, 128, 0.5),
+                 0 0 20px rgba(74, 222, 128, 0.3);
+  }
+  50% {
+    opacity: 0.8;
+    text-shadow: 0 0 15px rgba(74, 222, 128, 0.8),
+                 0 0 30px rgba(74, 222, 128, 0.6);
+  }
+}
+
+.glow-text-green {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* 3D Card Flip Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.style-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}

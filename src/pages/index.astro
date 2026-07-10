@@ -100,7 +100,7 @@ import logoImg from '../assets/images/logo.webp';
     <Footer />
 
     <!-- Mobile Sticky CTA -->
-    <div id="mobile-sticky-cta" class="fixed bottom-0 left-0 right-0 z-40 p-4 bg-navy-950/95 backdrop-blur-md border-t border-navy-800 md:hidden transform translate-y-full transition-transform duration-300 shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
+    <div id="mobile-sticky-cta" aria-hidden="true" class="fixed bottom-0 left-0 right-0 z-40 p-4 bg-navy-950/95 backdrop-blur-md border-t border-navy-800 md:hidden transform translate-y-full transition-transform duration-300 shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
       <div class="flex items-center justify-between gap-4">
         <div class="flex items-center gap-2">
           <Image src={logoImg} alt="MOOZ" class="w-8 h-8 object-contain" width={32} height={32} />
@@ -110,9 +110,11 @@ import logoImg from '../assets/images/logo.webp';
           </div>
         </div>
         <a
+          id="mobile-sticky-cta-link"
           href="https://opensea.io/collection/mooznfts"
           target="_blank"
           rel="noopener noreferrer"
+          tabindex="-1"
           class="flex-1 flex items-center justify-center bg-gradient-opensea hover:opacity-90 text-white text-sm py-2.5 px-4 rounded-xl font-semibold gap-2 transition-all shadow-lg"
         >
           <Icon name="opensea" class="h-4 w-4" />
@@ -178,18 +180,23 @@ import logoImg from '../assets/images/logo.webp';
     // 3. Mobile Sticky CTA Interactivity (IntersectionObserver)
     // ----------------------------------------------------
     const mobileStickyCta = document.getElementById('mobile-sticky-cta');
+    const mobileStickyCtaLink = document.getElementById('mobile-sticky-cta-link');
     const heroSection = document.querySelector('.hero-section');
     const ctaSection = document.getElementById('cta-section');
 
-    if (mobileStickyCta && heroSection && ctaSection) {
+    if (mobileStickyCta && mobileStickyCtaLink && heroSection && ctaSection) {
       let heroVisible = true;
       let ctaVisible = false;
 
       const toggleStickyCta = () => {
         if (!heroVisible && !ctaVisible) {
           mobileStickyCta.classList.remove('translate-y-full');
+          mobileStickyCta.setAttribute('aria-hidden', 'false');
+          mobileStickyCtaLink.setAttribute('tabindex', '0');
         } else {
           mobileStickyCta.classList.add('translate-y-full');
+          mobileStickyCta.setAttribute('aria-hidden', 'true');
+          mobileStickyCtaLink.setAttribute('tabindex', '-1');
         }
       };
 
